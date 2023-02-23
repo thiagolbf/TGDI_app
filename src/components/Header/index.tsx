@@ -4,6 +4,7 @@ import { Header } from "./style";
 import { Link } from "react-router-dom";
 
 import { GiHamburgerMenu } from "react-icons/gi";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 
 export const HeaderComponent = () => {
   const [responsive, setResponsive] = useState(false);
@@ -11,9 +12,12 @@ export const HeaderComponent = () => {
   return (
     <>
       <Header responsive={responsive}>
-        <p>TGDI</p>
-        <Link to="/registercostumer">Produtos</Link>
-        <Link to="/registerproduct">Carrinho</Link>
+        <p>TGID</p>
+
+        <Link to="/cart">
+          Carrinho <AiOutlineShoppingCart />
+        </Link>
+        <Link to="/products">Produtos</Link>
 
         <GiHamburgerMenu
           className="icon"

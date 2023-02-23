@@ -9,17 +9,18 @@ export const Header = styled.header<HeaderProps>`
   overflow: hidden;
 
   font-family: var(--roboto);
-  padding: 5px;
+  padding: 15px;
 
   > a {
     float: right;
     display: block;
     text-align: center;
-    margin: 0 5px;
+    margin: 0 10px;
+    color: var(--black);
   }
 
   a:visited {
-    color: var(--black-900);
+    color: var(--black);
   }
 
   > p {
@@ -57,7 +58,7 @@ export const Header = styled.header<HeaderProps>`
           float: none;
           display: block;
           text-align: center;
-          margin: 5px 0;
+          margin: 15px 0;
         }
         > p {
           float: none;
