@@ -14,7 +14,7 @@ interface Product {
   id: number;
   nome: string;
   descricao: string;
-  preco: string;
+  preco: number;
   foto: string;
   categoria_id: string;
 }
