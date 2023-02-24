@@ -19,6 +19,7 @@ export const ProductsPageComponent = () => {
               name={value.nome}
               description={value.descricao}
               price={value.preco}
+              product={value}
             />
           );
         })}
