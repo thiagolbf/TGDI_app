@@ -3,7 +3,7 @@ import { Card } from "./style";
 import { useContext } from "react";
 import { CartContext } from "../../providers/cart";
 
-interface ProductCardComponentProps {
+interface CartCardComponentProps {
   image: string;
   name: string;
   description: string;
@@ -20,22 +20,23 @@ interface Product {
   categoria_id: string;
 }
 
-export const ProductCardComponent = ({
+export const CartCardComponent = ({
   image,
   name,
   description,
   price,
   product,
-}: ProductCardComponentProps) => {
-  const { addToCart } = useContext(CartContext);
-
+}: CartCardComponentProps) => {
+  const { removeFromCart } = useContext(CartContext);
   return (
     <Card>
       <img src={image} alt="" />
       <p>nome: {name}</p>
       <p>descrição: {description}</p>
       <p>preço: {price}</p>
-      <button onClick={() => addToCart(product)}>Adicionar ao Carrinho</button>
+      <button onClick={() => removeFromCart(product)}>
+        Remover do Carrinho
+      </button>
     </Card>
   );
 };
