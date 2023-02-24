@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 
 import { toast } from "react-toastify";
 
@@ -6,6 +7,7 @@ interface CartProviderData {
   addToCart: (product: Product) => void;
   removeFromCart: (product: Product) => void;
   cartValue: () => number;
+  endCart: () => void;
   cart: Product[];
 }
 
@@ -19,7 +21,7 @@ interface Product {
   descricao: string;
   preco: number;
   foto: string;
-  categoria_id: string;
+  categoria_id: number;
 }
 
 export const CartContext = createContext<CartProviderData>(
@@ -27,6 +29,8 @@ export const CartContext = createContext<CartProviderData>(
 );
 
 export const CartProvider = ({ children }: CartProviderProps) => {
+  const navigate = useNavigate();
+
   const [cart, setCart] = useState<Product[]>(
     JSON.parse(localStorage.getItem("carts") ?? "[]")
   );
@@ -66,9 +70,16 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     return total;
   };
 
+  const endCart = () => {
+    localStorage.setItem("carts", JSON.stringify([]));
+    setCart([]);
+    alert("Obrigado por comprar conosco!");
+    navigate("/");
+  };
+
   return (
     <CartContext.Provider
-      value={{ addToCart, removeFromCart, cartValue, cart }}
+      value={{ addToCart, removeFromCart, cartValue, endCart, cart }}
     >
       {children}
     </CartContext.Provider>

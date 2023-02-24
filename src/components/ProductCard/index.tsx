@@ -17,7 +17,7 @@ interface Product {
   descricao: string;
   preco: number;
   foto: string;
-  categoria_id: string;
+  categoria_id: number;
 }
 
 export const ProductCardComponent = ({

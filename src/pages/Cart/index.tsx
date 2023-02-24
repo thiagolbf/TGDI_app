@@ -7,7 +7,7 @@ import { useContext } from "react";
 import { CartContext } from "../../providers/cart";
 
 export const CartPageComponent = () => {
-  const { cart, cartValue } = useContext(CartContext);
+  const { cart, cartValue, endCart } = useContext(CartContext);
   console.log(cart);
   return (
     <>
@@ -31,6 +31,7 @@ export const CartPageComponent = () => {
             <>
               {" "}
               <p>Valor total: {cartValue()}</p>
+              <button onClick={() => endCart()}>Finalizar compra</button>
             </>
           ) : (
             <>
